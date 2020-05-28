@@ -1,16 +1,14 @@
 # Write your code here.
 
-katz_deli = []
-
 def line(katz_deli)
-  if katz_deli.size == 0
+  if katz_deli.empty?
     puts "The line is currently empty."
   else
-    string = "The line is currently:"
-    katz_deli.each_with_index do |name, i|
-      string << " #{i + 1}. #{name}"
+    current_line = "The line is currently:"
+    katz_deli.each.with_index(1) do |person, i|  # i will start at (1)
+      current_line << " #{i}. #{person}"
     end
-    puts string
+    puts current_line
   end
 end 
 
@@ -22,10 +20,10 @@ end
 
 
 def now_serving(katz_deli)
-  if katz_deli.size == 0
+  if katz_deli.empty?
     puts "There is nobody waiting to be served!"
   else
-    puts "Currently serving #{katz_deli[0]}."
+    puts "Currently serving #{katz_deli.first}."
     katz_deli.shift
   end
 end
